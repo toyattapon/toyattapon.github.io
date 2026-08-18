@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toy Attapon — QA Engineer / Software Automation Tester</title>
+  <meta name="description" content="Portfolio of Toy Attapon, QA Engineer & Software Automation Tester specializing in test automation, API testing, and quality engineering." />
+
+  <!-- Google Fonts (ฟรี ไม่ต้อง license) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================
+       HEADER / NAVBAR
+       - fixed อยู่บนสุด, มี logo ซ้าย + nav ขวา
+       - ปุ่ม .nav-toggle จะโชว์แค่บนมือถือ (ควบคุมด้วย CSS + JS)
+       ============================ -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Toy<span class="accent">.</span></a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- TODO: เปลี่ยน href ให้ชี้ไปที่ไฟล์ resume จริงของทอย ถ้ามี ใส่ไว้ใน assets/ -->
+        <a href="assets/resume.pdf" class="btn btn-outline btn-sm" target="_blank">Resume</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
+        <button id="navToggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================
+         HERO SECTION
+         ============================ -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <p class="eyebrow">Hi, I'm</p>
+        <h1 class="hero-title">Toy Attapon</h1>
+        <h2 class="hero-subtitle">QA Engineer <span class="accent">/</span> Software Automation Tester</h2>
+        <p class="hero-text">
+          QA Engineer with a Software Engineering background and ~3 years of hands-on experience in
+          manual testing, test automation, API testing, and mobile/web application testing.
+          Currently expanding into <strong>Playwright + TypeScript</strong>, CI/CD, performance testing,
+          and AI-assisted QA workflows.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Get in touch</a>
+        </div>
+
+        <!-- TODO: ใส่ลิงก์จริงของทอย (GitHub, LinkedIn) -->
+        <div class="hero-socials">
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         ABOUT SECTION
+         ============================ -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Beyond finding bugs</h2>
+
+        <div class="about-grid">
+          <blockquote class="about-quote">
+            “I believe good QA is not just about finding bugs. It's about understanding how a system
+            works, identifying risk, improving feedback loops, and helping teams deliver software
+            with confidence.”
+          </blockquote>
+
+          <div class="about-text">
+            <p>
+              I work best in environments that value autonomy, clear ownership, and engineering-focused
+              collaboration. I enjoy solving problems independently while collaborating closely with
+              developers, product teams, and stakeholders when needed.
+            </p>
+            <p>
+              My goal is not to compete with AI, but to become a better engineer by using AI as a
+              force multiplier — a productivity tool, not a replacement for QA thinking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SKILLS SECTION
+         - 3 กลุ่มตามที่ทอยกำหนดไว้ (ไม่ใช้ rating 8/10)
+         ============================ -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="section-label">Skills</p>
+        <h2 class="section-title">What I bring to the table</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Strong / Experienced</h3>
+            <ul class="tag-list">
+              <li>Manual Testing</li>
+              <li>Functional Testing</li>
+              <li>Regression Testing</li>
+              <li>Web Testing</li>
+              <li>Mobile Testing</li>
+              <li>Test Case Design</li>
+              <li>Defect Management</li>
+              <li>Test Automation Fundamentals</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3>Working Knowledge</h3>
+            <ul class="tag-list">
+              <li>API Testing</li>
+              <li>Selenium</li>
+              <li>Robot Framework</li>
+              <li>Appium</li>
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Git</li>
+              <li>Postman</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3>Currently Developing</h3>
+            <ul class="tag-list">
+              <li>Playwright</li>
+              <li>TypeScript</li>
+              <li>CI/CD</li>
+              <li>GitHub Actions</li>
+              <li>Load Testing</li>
+              <li>AI for QA</li>
+              <li>Quality Engineering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         EXPERIENCE SECTION
+         - timeline / card list ของโปรเจกต์ที่ทำงานมา
+         ============================ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="section-label">Experience</p>
+        <h2 class="section-title">Where I've worked</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>AIS Projects</h3>
+              <p class="timeline-meta">MyAIS &amp; MyChannel Mobile Apps · ADMD &amp; IDS API</p>
+              <p>
+                Automation testing on mobile applications and API automation testing using
+                Selenium, Robot Framework, Appium, and Python.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>MyHaus — Pruksa</h3>
+              <p class="timeline-meta">Mobile Application · IoT / Smart Home</p>
+              <p>
+                Manual testing on a mobile app connected to Smart Home / IoT devices,
+                working closely with the Tuya team on device integration testing.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Wizlah &amp; Clickzy — Pruksa</h3>
+              <p class="timeline-meta">Web / E-commerce</p>
+              <p>Manual testing across web and e-commerce platforms.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>CGS &amp; TMP</h3>
+              <p class="timeline-meta">API &amp; Web Application</p>
+              <p>API manual testing (CGS) and web application manual testing (TMP).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         PROJECTS SECTION
+         - personal projects ที่ทอยสร้างเอง
+         ============================ -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <p class="section-label">Personal Projects</p>
+        <h2 class="section-title">Things I've built</h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <!-- TODO: ใส่ภาพ screenshot จริง แทน placeholder นี้ ไว้ที่ assets/ -->
+            <div class="project-thumb">Home Service</div>
+            <div class="project-body">
+              <h3>Home Service Management System</h3>
+              <p>
+                SaaS platform prototype for on-site service businesses (e.g. AC repair, installation).
+                Includes role-based access (Super Admin / Shop Admin / Technician), CRM,
+                job dispatching, inventory, invoicing, and a dashboard — also used as a
+                testing &amp; automation demo environment.
+              </p>
+              <ul class="tag-list tag-list-sm">
+                <li>React</li><li>TypeScript</li><li>Vite</li><li>Supabase</li>
+              </ul>
+              <!-- TODO: ใส่ลิงก์ demo / GitHub repo จริง -->
+              <div class="project-links">
+                <a href="#" target="_blank" rel="noopener">Live Demo</a>
+                <a href="#" target="_blank" rel="noopener">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb">PIM Thai</div>
+            <div class="project-body">
+              <h3>PIM Thai</h3>
+              <p>
+                A Thai keyboard typing-practice platform inspired by tools like Monkeytype —
+                built to practice Kedmanee-layout typing speed, accuracy, and progress tracking.
+              </p>
+              <ul class="tag-list tag-list-sm">
+                <li>JavaScript</li><li>HTML/CSS</li><li>UX</li>
+              </ul>
+              <div class="project-links">
+                <a href="#" target="_blank" rel="noopener">Live Demo</a>
+                <a href="#" target="_blank" rel="noopener">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb">V.P. Air &amp; Service</div>
+            <div class="project-body">
+              <h3>V.P. Air &amp; Service</h3>
+              <p>
+                Digital presence and workflow support for a family-run air-conditioning business —
+                website, product catalog, and back-office automation connecting Google Sheets,
+                AppSheet, and Google Workspace to reduce manual work.
+              </p>
+              <ul class="tag-list tag-list-sm">
+                <li>WordPress</li><li>WooCommerce</li><li>AppSheet</li><li>Automation</li>
+              </ul>
+              <div class="project-links">
+                <a href="#" target="_blank" rel="noopener">Visit Site</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         CONTACT SECTION
+         ============================ -->
+    <section class="section" id="contact">
+      <div class="container contact-inner">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Let's work together</h2>
+        <p class="contact-text">
+          Open to remote / flexible QA Engineer and QA Automation opportunities.
+          Feel free to reach out — I usually reply within a day.
+        </p>
+
+        <!-- TODO: เปลี่ยนอีเมลเป็นอีเมลจริงที่ทอยใช้สมัครงาน -->
+        <a href="mailto:toyattapon@gmail.com" class="btn btn-primary btn-lg" id="emailBtn">
+          toyattapon@gmail.com
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Toy Attapon. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

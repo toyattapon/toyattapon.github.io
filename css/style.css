@@ -1,0 +1,406 @@
+/* =========================================================
+   0. CSS VARIABLES (Design Tokens)
+   - เปลี่ยนค่าตรงนี้ที่เดียว ธีมทั้งเว็บเปลี่ยนหมด
+   - มี light theme เป็น default, dark theme ใช้ [data-theme="dark"]
+   ========================================================= */
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f5f6f8;
+  --text: #14171f;
+  --text-muted: #5b6270;
+  --border: #e3e5ea;
+  --accent: #2563eb;      /* ลองเปลี่ยนเป็นสีที่ทอยชอบดูได้ */
+  --accent-contrast: #ffffff;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 20px rgba(20, 23, 31, 0.06);
+
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --container-width: 1080px;
+  --radius: 14px;
+}
+
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --bg-alt: #161923;
+  --text: #eef0f4;
+  --text-muted: #9aa0ad;
+  --border: #262a37;
+  --accent: #5b8cff;
+  --accent-contrast: #0f1117;
+  --card-bg: #171a24;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   1. RESET / BASE
+   ========================================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================================
+   2. TYPOGRAPHY HELPERS
+   ========================================================= */
+.accent { color: var(--accent); }
+
+.section-label {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* =========================================================
+   3. BUTTONS
+   ========================================================= */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn-outline {
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-sm { padding: 8px 16px; font-size: 0.85rem; }
+.btn-lg { padding: 16px 32px; font-size: 1.1rem; }
+
+/* =========================================================
+   4. HEADER / NAV
+   ========================================================= */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-muted);
+  position: relative;
+}
+.nav-link:hover, .nav-link.active { color: var(--text); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle, .nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* hamburger icon: ซ่อนไว้ก่อนบนจอใหญ่ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  width: 24px;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+/* =========================================================
+   5. HERO
+   ========================================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 72px; /* กันไม่ให้โดน header ทับ */
+}
+
+.hero-inner { max-width: 720px; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 12px 0 24px;
+}
+
+.hero-text {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.hero-socials {
+  display: flex;
+  gap: 20px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.hero-socials a:hover { color: var(--accent); }
+
+/* =========================================================
+   6. SECTIONS (generic)
+   ========================================================= */
+.section { padding: 100px 0; }
+.section-alt { background: var(--bg-alt); }
+
+/* --- About --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-quote {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-left: 4px solid var(--accent);
+  padding-left: 24px;
+}
+
+.about-text p { color: var(--text-muted); margin-bottom: 16px; }
+
+/* --- Skills --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skill-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.skill-card h3 { margin-bottom: 16px; font-size: 1.05rem; }
+
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag-list li {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.tag-list-sm li { font-size: 0.75rem; padding: 4px 10px; }
+
+/* --- Experience Timeline --- */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -39px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-content h3 { margin-bottom: 4px; }
+
+.timeline-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.timeline-content p:not(.timeline-meta) { color: var(--text-muted); }
+
+/* --- Projects --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-thumb {
+  height: 140px;
+  background: linear-gradient(135deg, var(--accent), var(--bg-alt));
+  color: var(--accent-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-align: center;
+  padding: 12px;
+}
+
+.project-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.project-body h3 { font-size: 1.1rem; }
+.project-body p { color: var(--text-muted); font-size: 0.92rem; }
+
+.project-links { display: flex; gap: 16px; margin-top: auto; font-weight: 600; }
+.project-links a { color: var(--accent); }
+
+/* --- Contact --- */
+.contact-inner { text-align: center; max-width: 560px; }
+.contact-text { color: var(--text-muted); margin-bottom: 32px; }
+
+/* =========================================================
+   7. FOOTER
+   ========================================================= */
+.site-footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.footer-inner { text-align: center; }
+
+/* =========================================================
+   8. RESPONSIVE
+   - Lesson: breakpoint หลักที่ใช้บ่อยคือ ~768px (tablet/mobile)
+   ========================================================= */
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .nav {
+    position: fixed;
+    top: 72px;
+    left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    /* หมายเหตุ: ห้ามใช้ translateY(-110%) ซ่อนเมนู เพราะ % คิดจากความสูงของ nav เอง
+       ถ้าลิงก์ในเมนูเยอะ/สูงเกิน 72px มันจะเลื่อนขึ้นไม่พ้นจอ เหลือโป่งทับ header
+       ใช้ opacity + visibility ซ่อนแทน ชัวร์กว่าไม่ว่า nav จะสูงแค่ไหน */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .header-actions .btn-outline { display: none; } /* ซ่อน Resume บนมือถือ ประหยัดพื้นที่ */
+
+  .about-grid,
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section { padding: 64px 0; }
+}
