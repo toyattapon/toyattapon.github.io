@@ -536,6 +536,11 @@ ul { list-style: none; }
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
 }
 
 .project-thumb {
@@ -576,8 +581,7 @@ ul { list-style: none; }
 /* --- Project thumb แบบ terminal ปลอม: ใช้แทน gradient thumb ปกติ สำหรับโปรเจกต์ QA automation
    โทนเดียวกับกล่องโค้ด toy.js ใน About (พื้นเข้ม fix สี ไม่ผูกกับ --bg) --- */
 .project-thumb-terminal {
-  height: auto;
-  min-height: 140px;
+  height: 170px; /* fix ตายตัว ให้เท่ากับ .project-thumb-browser เป๊ะ ไม่ปล่อยตามเนื้อหา */
   background: #1e1e2e;
   color: #e2e2f0;
   display: block;
@@ -590,7 +594,8 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 14px;
+  height: 42px; /* fix สูงตายตัว ให้เท่ากับ .browser-header เป๊ะ ไม่ว่าเนื้อหาข้างในจะสูงแค่ไหน */
+  padding: 0 14px;
   background: #26263a;
   border-bottom: 1px solid #333349;
 }
@@ -618,8 +623,66 @@ ul { list-style: none; }
   font-size: 0.68rem;
 }
 
-.project-links { display: flex; gap: 16px; margin-top: auto; font-weight: 600; }
-.project-links a { color: var(--accent); }
+/* --- Project thumb แบบ browser ปลอม: สำหรับโปรเจกต์ที่ deploy จริงแล้ว
+   ใช้โทนเข้มเดียวกับ terminal เสมอ (ไม่ผูกกับ --bg/--text) ให้ดูสวย/เด่นสม่ำเสมอกันทุกการ์ด
+   ไม่ว่าเว็บจะเป็น light หรือ dark theme — ต่างจาก terminal แค่ตรงเนื้อหาข้างใน (ไอคอน+ชื่อ แทน checklist) --- */
+.project-thumb-browser {
+  height: 170px; /* fix ตายตัว ให้เท่ากับ .project-thumb-terminal เป๊ะ */
+  background: #1e1e2e;
+  color: #e2e2f0;
+  display: block;
+  text-align: left;
+  padding: 0;
+  font-weight: 400;
+}
+
+.browser-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 42px; /* fix สูงตายตัว ให้เท่ากับ .terminal-header เป๊ะ */
+  padding: 0 14px;
+  background: #26263a;
+  border-bottom: 1px solid #333349;
+}
+
+.browser-url {
+  margin-left: 6px;
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #9a9ab5;
+  background: #1e1e2e;
+  border: 1px solid #333349;
+  border-radius: 999px;
+  padding: 3px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.browser-body {
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  text-align: center;
+  gap: 4px;
+}
+
+.browser-line { margin: 0; font-size: 0.85rem; color: #9a9ab5; }
+.browser-line:first-child { font-weight: 700; color: #e2e2f0; font-size: 0.95rem; }
+
+/* ปุ่มใช้ .btn .btn-outline .btn-sm (คอมโพเนนต์เดียวกับ Get in touch / GitHub / LinkedIn ทั้งเว็บ)
+   flex-wrap กันปุ่มยาว (เช่น "Source Code (Testing)") ตัดคำแปลกๆ — ขึ้นแถวใหม่แทน */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
 
 /* --- Contact --- */
 .contact-inner { text-align: center; max-width: 560px; }

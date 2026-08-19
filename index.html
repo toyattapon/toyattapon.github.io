@@ -315,16 +315,28 @@
               <ul class="tag-list tag-list-sm">
                 <li>React</li><li>TypeScript</li><li>Vite</li><li>Express</li><li>PostgreSQL</li>
               </ul>
-              <!-- TODO: ใส่ลิงก์ GitHub repo จริง (ตัด Live Demo ออก เพราะ recruiter สาย QA
-                   อยากเห็น "สกิลการทดสอบ" มากกว่าอยากเล่นแอปจริง — ดู code/test แทน) -->
               <div class="project-links">
-                <a href="#" target="_blank" rel="noopener">Source Code</a>
+                <a href="https://github.com/toyattapon/home-service-e2e-tests" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Source Code (Testing)</a>
+                <a href="https://github.com/toyattapon/home-service-qa-demo" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Source Code (Web Demo)</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-thumb">PIM Thai</div>
+            <!-- กรอบ browser ปลอม: ใช้ pattern จุด 3 สีเดียวกับ About/Home Service แต่โทนอิงธีมเว็บ (light/dark)
+                 เพราะเป็น "เว็บที่ deploy จริง" ต่างจาก terminal ที่แทนงาน QA/testing -->
+            <div class="project-thumb project-thumb-browser">
+              <div class="browser-header">
+                <span class="about-code-dot dot-red"></span>
+                <span class="about-code-dot dot-yellow"></span>
+                <span class="about-code-dot dot-green"></span>
+                <span class="browser-url">pimthai.pimthai.workers.dev</span>
+              </div>
+              <div class="browser-body">
+                <p class="browser-line">⌨️ Thai Typing Practice</p>
+                <p class="browser-line">Kedmanee layout · speed &amp; accuracy</p>
+              </div>
+            </div>
             <div class="project-body">
               <h3>PIM Thai</h3>
               <p data-i18n="proj.pimThai">
@@ -335,13 +347,24 @@
                 <li>JavaScript</li><li>HTML/CSS</li><li>UX</li>
               </ul>
               <div class="project-links">
-                <a href="https://pimthai.pimthai.workers.dev/" target="_blank" rel="noopener">Visit Site</a>
+                <a href="https://pimthai.pimthai.workers.dev/" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Visit Site</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-thumb">V.P. Air &amp; Service</div>
+            <div class="project-thumb project-thumb-browser">
+              <div class="browser-header">
+                <span class="about-code-dot dot-red"></span>
+                <span class="about-code-dot dot-yellow"></span>
+                <span class="about-code-dot dot-green"></span>
+                <span class="browser-url">vpairrayong.com</span>
+              </div>
+              <div class="browser-body">
+                <p class="browser-line">❄️ V.P. Air &amp; Service</p>
+                <p class="browser-line">WordPress · LINE OA integration</p>
+              </div>
+            </div>
             <div class="project-body">
               <h3>V.P. Air &amp; Service</h3>
               <p data-i18n="proj.vpAir">
@@ -354,7 +377,7 @@
                 <li>WordPress</li><li>WooCommerce</li><li>AppSheet</li><li>LINE OA</li>
               </ul>
               <div class="project-links">
-                <a href="https://vpairrayong.com/" target="_blank" rel="noopener">Visit Site</a>
+                <a href="https://vpairrayong.com/" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Visit Site</a>
               </div>
             </div>
           </article>
