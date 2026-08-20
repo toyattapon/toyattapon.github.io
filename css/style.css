@@ -367,6 +367,47 @@ ul { list-style: none; }
 .section { padding: 100px 0; }
 .section-alt { background: var(--bg-alt); }
 
+/* --- Ambient glow: เลเยอร์เดียว fixed ติดจอ ลอยอยู่หลังเนื้อหาทั้งหน้า
+   (เดิมเคยทำเป็น .has-glow แปะซ้ำทุก section — พอมี overflow:hidden ต่อ section
+   มันเลยโดนตัดขอบเป็นชิ้นๆ ที่รอยต่อ section แถมซ้ำแพทเทินเดิม 4 รอบ
+   ย้ายมาไว้ที่ body/html::before ทีเดียว ไม่ผูกกับกล่องของ section ไหนเลย
+   จึงไม่มีขอบให้ตัด — section ที่มีพื้นทึบอยู่แล้ว (.section-alt, การ์ดต่างๆ, sidebar)
+   จะบังมันเป็นธรรมชาติ ส่วน section โปร่งใส (Hero/About/Skills/Contact) จะเห็นมันทะลุผ่าน) --- */
+body { position: relative; }
+
+html::before,
+body::before {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none; /* กันบัง click/hover ของปุ่ม/ลิงก์ */
+}
+html::before {
+  width: 520px;
+  height: 520px;
+  background: var(--accent);
+  opacity: 0.22;
+  filter: blur(130px);
+  top: -120px;
+  right: -100px;
+  animation: ambientGlowDrift 16s ease-in-out infinite alternate;
+}
+body::before {
+  width: 460px;
+  height: 460px;
+  background: #8b5cf6;
+  opacity: 0.14;
+  filter: blur(110px);
+  bottom: -140px;
+  left: -120px;
+  animation: ambientGlowDrift 22s ease-in-out infinite alternate-reverse;
+}
+@keyframes ambientGlowDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(40px, -30px) scale(1.1); }
+}
+
 /* --- About --- */
 .about-grid {
   display: grid;
